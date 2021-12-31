@@ -1,0 +1,53 @@
+version: '3.7'
+x-db-config:
+  &db-config
+  MYSQL_USER: root
+  MYSQL_PASSWORD: root
+  MYSQL_DATABASE: hrapp
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: 'shouts.dev/laravel'
+    container_name: laravel-app
+    ports:
+      - "8060:8080"
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - laravel-shouts
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql
+    container_name: laravel-db
+    restart: unless-stopped
+    ports:
+      - "3308:3308"
+    environment:
+      << : *db-config
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - ./database/dbdata:/var/lib/mysql
+    networks:
+      - laravel-shouts
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - '8080:80'
+    volumes:
+      - /sessions
+networks:
+  laravel-shouts:
+    driver: bridge
