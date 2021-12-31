@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: docker/Dockerfile
     image: 'shouts.dev/laravel'
-    container_name: laravel-app
+    container_name: digital-directory
     ports:
       - "8060:8080"
     volumes:
@@ -18,10 +18,10 @@ services:
     networks:
       - laravel-shouts
     depends_on:
-      - mysql
-  mysql:
+      - database
+  database:
     image: mysql
-    container_name: laravel-db
+    container_name: database
     restart: unless-stopped
     ports:
       - "3308:3308"
@@ -36,11 +36,11 @@ services:
       - ./database/dbdata:/var/lib/mysql
     networks:
       - laravel-shouts
-  phpmyadmin:
-    container_name: phpmyadmin
+  myadmin:
+    container_name: myadmin
     image: phpmyadmin/phpmyadmin
     links:
-      - mysql
+      - database
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
