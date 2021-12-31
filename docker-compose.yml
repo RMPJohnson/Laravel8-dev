@@ -1,53 +1,43 @@
 version: '3.7'
 x-db-config:
   &db-config
-  MYSQL_USER: root
-  MYSQL_PASSWORD: root
-  MYSQL_DATABASE: hrapp
+  MYSQL_USER: forge
+  MYSQL_PASSWORD: pass1234
+  MYSQL_DATABASE: digital
 services:
-  app:
+  php-apache-environment:
+    container_name: laravel_app
     build:
-      context: .
-      dockerfile: docker/Dockerfile
-    image: 'shouts.dev/laravel'
-    container_name: digital-directory
-    ports:
-      - "8060:8080"
-    volumes:
-      - ./:/var/www/html
-    networks:
-      - laravel-shouts
+      context: ./docker
+      dockerfile: Dockerfile
     depends_on:
       - database
-  database:
-    image: mysql
-    container_name: database
-    restart: unless-stopped
-    ports:
-      - "3308:3308"
-    environment:
-      << : *db-config
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    image: php:8.0-apache
     volumes:
-      - ./database/dbdata:/var/lib/mysql
-    networks:
-      - laravel-shouts
-  myadmin:
-    container_name: myadmin
+      - ./src:/var/www/html
+      - ./docker/init.sh:/app/init/init.sh
+    ports:
+      - 8000:80
+    # command: bash -c "/app/init/init.sh"
+  database:
+    container_name: database
+    image: mysql
+    restart: always
+    environment:
+      <<: *db-config
+      MYSQL_ROOT_PASSWORD: pass1234
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "9906:3306"
+  phpmyadmin:
+    container_name: laravel-phpmyadmin
     image: phpmyadmin/phpmyadmin
     links:
       - database
     environment:
-      PMA_HOST: db
+      PMA_HOST: database
       PMA_PORT: 3306
     ports:
-      - '8080:80'
+      - '8081:80'
     volumes:
       - /sessions
-networks:
-  laravel-shouts:
-    driver: bridge
