@@ -34,6 +34,10 @@
                         @endif
                     @endauth
                 </div>
+            @else
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                </div>
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
@@ -130,3 +134,6 @@
         </div>
     </body>
 </html>
+@section('scripts')
+
+@stop
