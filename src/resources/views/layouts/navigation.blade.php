@@ -6,8 +6,8 @@
                 <div class="dropdown profile-element text-center">
                     <img alt="image" class="rounded-circle" src="{!! asset('images/profile_small.jpg') !!}">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="block m-t-xs font-bold">{{auth()->user()->name}}</span>
-                        <span class="text-muted text-xs block">Super Admin <b class="caret"></b></span>
+                        <span class="block m-t-xs font-bold">Welcome {{auth()->user()->name}}</span>
+                        <span class="text-muted text-xs block">{{ auth()->user()->roles->pluck('name')[0] ?? '' }} <b class="caret"></b></span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
@@ -22,24 +22,24 @@
                 </div>
             </li>
             <li>
-                <a href="{{ route('dashboard') }}"><i class="fa fa-diamond"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                <a href="{{ route('dashboard') }}"><i class="fa fa-diamond"></i> <span class="nav-label">Dashboards</span></a>
             </li>
             @auth
-                @role('Admin')
-                <li class="active">
-                    <a href="#" aria-expanded="true"><i class="fa fa-edit"></i> <span class="nav-label">Users Management</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse in" aria-expanded="true" style="">
-                        <li><a href="{{ route('users.index') }}">Users</a></li>
-                        <li><a href="{{ route('roles.index') }}">Roles</a></li>
+                @role('admin')
+                <li {{ (request()->is('administrator/users*')) ? 'class=active' : '' }}>
+                    <a href="#" aria-expanded="fa"><i class="fa fa-users"></i> <span class="nav-label">Users Management</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse in" aria-expanded="true">
+                        <li><a href="{{ route('users.index') }}"><i class="fa fa-user"></i> Users</a></li>
+                        <li><a href="{{ route('roles.index') }}"><i class="fa fa-gavel"></i> Roles</a></li>
                     </ul>
                 </li>
                 @endrole
             @endauth
-            <li class="active">
+            <li {{ (request()->is('administrator/directory*')) ? 'class=active' : '' }}>
                 <a href="#" aria-expanded="true"><i class="fa fa-edit"></i> <span class="nav-label">Directory</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse in" aria-expanded="true" style="">
-                    <li><a href="form_basic.html">Category</a></li>
-                    <li><a href="form_advanced.html">Profiles</a></li>
+                <ul class="nav nav-second-level collapse in" aria-expanded="true">
+                    <li><a href="form_basic.html"><i class="fa fa-table"></i> Category</a></li>
+                    <li><a href="form_advanced.html"><i class="fa fa-user-secret"></i> Profiles</a></li>
                 </ul>
             </li>
         </ul>

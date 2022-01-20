@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Roles | Show')
 @section('content')
     <div class="bg-light p-4 rounded">
         <h1>{{ ucfirst($role->name) }} Role</h1>

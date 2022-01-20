@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Roles | Create')
 @section('content')
     <div class="bg-light p-4 rounded">
         <h1>Add new role</h1>

@@ -6,7 +6,10 @@
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <a href="{{ route('logout') }}">
+                <span class="text-secondary"><b><i class="fa fa-clock-o"></i> {{ date('m-d-Y H:i:s') }} </b></span>
+            </li>
+            <li>
+                <a href="{{ route('logout') }}" class="text-danger">
                     <i class="fa fa-sign-out"></i> Log out
                 </a>
             </li>
