@@ -17,7 +17,9 @@
             <!-- Page wrapper -->
             @include('layouts.topnavbar')
             <!-- Main view  -->
-            @yield('content')
+             <div class="row mt-3">
+                @yield('content')
+             </div>
             <!-- Footer -->
             @include('layouts.footer')
         </div>

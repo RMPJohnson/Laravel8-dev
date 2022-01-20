@@ -14,7 +14,7 @@
                 @yield('content')
             </div>
     </div>
-    @include('layouts.footer')
+
 
 @section('scripts')
     <!-- Mainly scripts -->

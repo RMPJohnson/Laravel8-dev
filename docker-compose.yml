@@ -30,7 +30,7 @@ services:
       MYSQL_ROOT_PASSWORD: pass1234
       MYSQL_ROOT_HOST: '%'
     ports:
-      - "9906:3306"
+      - "9907:3306"
   phpmyadmin:
     container_name: laravel-phpmyadmin
     image: phpmyadmin/phpmyadmin
