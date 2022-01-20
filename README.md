@@ -1,8 +1,15 @@
-# Laravel 8.x boilerplate with Docker configuration
+# Laravel 8.x boilerplate with docker configuration
 
 Laravel is well known PHP open-source framework. It intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony. Our Goal in this project is to create a basic architecture of a project that includes all necessary items that we use while developing any web application. We also create a docker file that includes Apache, PHP and MySQL. This application is tested on Ubuntu 20.0 LTS.
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<img alt="GitHub watchers" src="https://img.shields.io/github/watchers/RMPJohnson/DigitalDirectory?style=social">
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/RMPJohnson/DigitalDirectory">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/RMPJohnson/DigitalDirectory">
+<img alt="Weblate component license" src="https://img.shields.io/weblate/l/godot-engine/godot">
+</p>
 
-## Configure Docker on your Machine.
+## Configure Docker on your machine.
 
 ### Step1: Install Docker
 ```bash
