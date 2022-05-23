@@ -33,7 +33,7 @@ docker-compose up -d
 ```
 or 
 ```bash
-docker-comopse build && docker-compose up -d
+docker-compose build && docker-compose up -d
 ```
 ### Step3: Connect Docker image
 ```bash
