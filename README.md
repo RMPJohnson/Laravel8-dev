@@ -75,13 +75,14 @@ Password: admin123
 There will be a dashboard in-front of you where can change your password. Update your profile information and create roles and permission.
 
 # Features:
-1. Inspenia Bootstrap theme for admin area. [documentation](http://webapplayers.com/inspinia_admin-v2.9.4/)
+1. Inspinia Bootstrap theme for admin area. [documentation](http://webapplayers.com/inspinia_admin-v2.9.4/)
 2. User Laravel Authentication. [documentation](https://laravel.com/docs/5.7/authentication)
 3. Roles & Permissions [documentation](https://codeanddeploy.com/blog/laravel/laravel-8-user-roles-and-permissions-step-by-step-tutorial#kjNAJj9MlMLUcT2n1u7o2VOaO)
 4. User Management (Change password, Profile)
 5. Roles Management
 6. Permission Management
-7. Landing page for fornt-end.
+7. Landing page for front-end.
+8. Implementation of Repository Design Patterns. [documentation](https://dev.to/carlomigueldy/getting-started-with-repository-pattern-in-laravel-using-inheritance-and-dependency-injection-2ohe)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
