@@ -24,9 +24,16 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'phone_no' => 'required',
             'email' => 'required|email:rfc,dns|unique:users,email',
-            'username' => 'required|unique:users,username',
+            'name' => 'required|unique:users,name',
+            'password' => 'required|same:confirm-password',
+            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

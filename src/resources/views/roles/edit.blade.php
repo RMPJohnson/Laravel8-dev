@@ -1,28 +1,25 @@
 @extends('layouts.app')
 @section('title', 'Roles | Update')
 @section('content')
-    <div class="bg-light p-4 rounded">
-        <h1>Update role</h1>
-        <div class="lead">
-            Edit role and manage permissions.
-        </div>
-
-        <div class="container mt-4">
-
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            <form method="POST" action="{{ route('roles.update', $role->id) }}">
-                @method('patch')
-                @csrf
+    <div class="col-lg-8">
+        <form method="POST" action="{{ route('roles.update', $role->id) }}">
+            @method('patch')
+            @csrf
+        <div class="ibox">
+            <div class="ibox-title">
+                Edit role and manage permissions.
+            </div>
+            <div class="ibox-content">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input value="{{ $role->name }}"
@@ -58,12 +55,17 @@
                     @endforeach
                 </table>
 
-                <button type="submit" class="btn btn-primary">Save changes</button>
-                <a href="{{ route('roles.index') }}" class="btn btn-default">Back</a>
-            </form>
-        </div>
+            </div>
+            <div class="ibox-footer">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Save changes</button>
+                <a href="{{ route('roles.index') }}" class="btn btn-default"> <i class="fa fa-arrow-left"></i> Back</a>
 
+            </div>
+        </div>
+        </form>
     </div>
+
+
 @endsection
 
 @section('scripts')

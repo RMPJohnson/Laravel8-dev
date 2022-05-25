@@ -4887,6 +4887,7 @@ code {
   min-height: 48px;
   position: relative;
   clear: both;
+  font-size: 1.2rem;
 }
 .ibox-content {
   background-color: #ffffff;
@@ -5574,7 +5575,7 @@ body.mini-navbar.fixed-sidebar .profile-element,
   display: block !important;
 }
 body.mini-navbar.fixed-sidebar .nav-header {
-  padding: 33px 25px;
+  padding: 5px 25px;
 }
 body.mini-navbar.fixed-sidebar .logo-element {
   display: none;
@@ -5691,13 +5692,12 @@ body.mini-navbar.fixed-sidebar .logo-element {
 }
 .logo-name {
   color: #e6e6e6;
-  font-size: 180px;
+  font-size: 1.3rem;
   font-weight: 800;
-  letter-spacing: -10px;
   margin-bottom: 0;
 }
 .middle-box h1 {
-  font-size: 170px;
+  font-size: 1.5rem;
 }
 .wrapper .middle-box {
   margin-top: 140px;

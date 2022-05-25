@@ -15,22 +15,19 @@
                     <tr>
                         <th>No</th>
                         <th width="80%">Name</th>
-                        <th colspan="3">Action</th>
+                        <th colspan="3" width="1"></th>
                     </tr>
                     @foreach ($roles as $key => $role)
                         <tr>
                             <td>{{ $role->id }}</td>
                             <td>{{ $role->name }}</td>
                             <td>
-                                <a class="btn btn-warning btn-sm" href="{{ route('roles.show', $role->id) }}"><i class="fa fa-street-view"></i> Show</a>
-                            </td>
-                            <td>
-                                <a class="btn btn-success btn-sm" href="{{ route('roles.edit', $role->id) }}"><i class="fa fa-edit"></i> Edit</a>
-                            </td>
-                            <td>
-                                {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
-                                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                                {!! Form::close() !!}
+                                <div class="btn-group">
+                                    <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-white btn-xs"> <i class="fa fa-edit"></i> Edit</a>
+                                    {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                                    {!! Form::close() !!}
+                                </div>
                             </td>
                         </tr>
                     @endforeach

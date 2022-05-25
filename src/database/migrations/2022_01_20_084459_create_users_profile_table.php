@@ -13,7 +13,7 @@ class CreateUsersProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_profile', function (Blueprint $table) {
+        Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
@@ -21,7 +21,8 @@ class CreateUsersProfileTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('phone_no')->nullable();
-            $table->string('picture');
+            $table->string('picture')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateUsersProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_profile');
+        Schema::dropIfExists('user_profiles');
     }
 }

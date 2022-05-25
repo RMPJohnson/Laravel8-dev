@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +16,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::get('/', function () {
         return view('directory');
     });
-
     Route::prefix('administrator')->group(function () {
         Auth::routes();
         Route::get('/', [UserController::class, 'dashboard'])->name('dashboard');
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
         Route::get('/profile', [UserController::class, 'profile'])->name('profile');
-        Route::get('/change-password', [UserController::class, 'changepassword'])->name('change-password');
+
+        Route::get('/change-password', [UserController::class, 'ChangePassword'])->name('change-password');
+        Route::post('/change-password',[UserController::class, 'saveChangePassword'])->name('user.change-password');
         Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 
         /**
@@ -41,7 +41,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
 
         Route::resource('roles', RolesController::class);
         Route::resource('permissions', PermissionsController::class);
-
-
     });
+
 });

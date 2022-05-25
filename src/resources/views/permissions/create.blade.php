@@ -1,33 +1,34 @@
 @extends('layouts.app')
-
+@section('title', 'User | Permission')
 @section('content')
-    <div class="bg-light p-4 rounded">
-        <h2>Add new permission</h2>
-        <div class="lead">
-            Add new permission.
-        </div>
-
-        <div class="container mt-4">
-
+    <div class="col-lg-6">
+        <div class="ibox">
             <form method="POST" action="{{ route('permissions.store') }}">
                 @csrf
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input value="{{ old('name') }}"
-                           type="text"
-                           class="form-control"
-                           name="name"
-                           placeholder="Name" required>
+            <div class="ibox-title"> Add Permissions </div>
+            <div class="ibox-content">
 
-                    @if ($errors->has('name'))
-                        <span class="text-danger text-left">{{ $errors->first('name') }}</span>
-                    @endif
-                </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input value="{{ old('name') }}"
+                               type="text"
+                               class="form-control"
+                               name="name"
+                               placeholder="Name" required>
 
-                <button type="submit" class="btn btn-primary">Save permission</button>
-                <a href="{{ route('permissions.index') }}" class="btn btn-default">Back</a>
+                        @if ($errors->has('name'))
+                            <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+                        @endif
+                    </div>
+            </div>
+            <div class="ibox-footer">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Save permission</button>
+                <a href="{{ route('permissions.index') }}" class="btn btn-default"> <i class="fa fa-arrow-left"></i> Back</a>
+            </div>
             </form>
         </div>
+    </div>
+
 
     </div>
 @endsection

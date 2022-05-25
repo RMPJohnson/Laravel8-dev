@@ -1,16 +1,13 @@
 @extends('layouts.login')
-
+@section('title', 'User | Login')
 @section('content')
+    <div class="ibox-content">
     <div>
-        <h1 class="logo-name">WD+</h1>
+        <h1 class="logo-name">{{ env('APP_NAME') }}</h1>
     </div>
-    <h3>Welcome to WD</h3>
-    <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.</p>
-    <p>Login in. To see it in action.</p>
-
+    <h3>Welcome to {{ env('APP_NAME') }}</h3>
     <form method="POST" class="m-t" role="form" action="{{ route('login') }}">
         @csrf
-
         <div class="row mb-3">
             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
 
@@ -65,4 +62,5 @@
             </div>
         </div>
     </form>
+    </div>
 @endsection

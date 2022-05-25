@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>INSPINIA | @yield('title')</title>
+    <title>{{ env('APP_NAME') }} | @yield('title')</title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
@@ -9,7 +9,7 @@
 
 </head>
 <body class="gray-bg">
-    <div class="middle-box text-center loginscreen animated fadeInDown">
+    <div class="middle-box loginscreen animated fadeInDown">
             <div>
                 @yield('content')
             </div>

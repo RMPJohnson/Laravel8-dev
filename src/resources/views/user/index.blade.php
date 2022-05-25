@@ -18,10 +18,13 @@
                     <thead>
                     <tr>
                         <th scope="col" width="1%">#</th>
-                        <th scope="col" width="15%">Name</th>
+                        <th scope="col" width="15%">User Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone</th>
                         <th scope="col" width="10%">Roles</th>
-                        <th scope="col" width="1%" colspan="3">Operations</th>
+                        <th scope="col" width="1%">Operations</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,17 +33,22 @@
                             <th scope="row">{{ $user->id }}</th>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->profile->first_name .' '. $user->profile->last_name }}</td>
+                            <td>{{ $user->profile->address }}</td>
+                            <td>{{ $user->profile->phone_no }}</td>
                             <td>
                                 @foreach($user->roles as $role)
                                     <span class="badge bg-primary">{{ $role->name }}</span>
                                 @endforeach
                             </td>
-                            <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-street-view"></i> Show</a></td>
-                            <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-success btn-sm"> <i class="fa fa-edit"></i> Edit</a></td>
                             <td>
-                                {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                                {!! Form::close() !!}
+                                <div class="btn-group">
+                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-white btn-xs"><i class="fa fa-street-view"></i> Show</a>
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-white btn-xs"> <i class="fa fa-edit"></i> Edit</a>
+                                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                                    {!! Form::close() !!}
+                                </div>
                             </td>
                         </tr>
                     @endforeach
