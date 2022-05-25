@@ -28,8 +28,8 @@
 
                 @role('Admin')
                 <li {{ (request()->is('administrator/users*')) ? 'class=active' : '' }}>
-                    <a href="#" aria-expanded="fa"><i class="fa fa-users"></i> <span class="nav-label">Users Management</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse in" aria-expanded="true">
+                    <a href="#" aria-expanded="false"><i class="fa fa-users"></i> <span class="nav-label">Users Management</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse" aria-expanded="false">
                         <li><a href="{{ route('users.index') }}"><i class="fa fa-user"></i> Users</a></li>
                         <li><a href="{{ route('permissions.index') }}"><i class="fa fa-key"></i> Permissions</a></li>
                         <li><a href="{{ route('roles.index') }}"><i class="fa fa-gavel"></i> Roles</a></li>
@@ -38,8 +38,8 @@
                 @endrole
 
             <li {{ (request()->is('administrator/directory*')) ? 'class=active' : '' }}>
-                <a href="#" aria-expanded="true"><i class="fa fa-edit"></i> <span class="nav-label">Directory</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse in" aria-expanded="true">
+                <a href="#" aria-expanded="false"><i class="fa fa-edit"></i> <span class="nav-label">Directory</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" aria-expanded="false">
                     <li><a href="form_basic.html"><i class="fa fa-table"></i> Category</a></li>
                     <li><a href="form_advanced.html"><i class="fa fa-user-secret"></i> Profiles</a></li>
                 </ul>
