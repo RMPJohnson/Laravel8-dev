@@ -47,6 +47,20 @@ After login in Laravel_app image and downloading git repo all source code is in 
 ```bash
 composer update
 composer dump-autoload
+
+```
+## Change database settings in .env:
+Please change all these variable according to your database server settings. You can define additional settings as per your requirement.
+```bash
+DB_CONNECTION=mysql
+DB_HOST=*******
+DB_PORT=****
+DB_DATABASE=*******
+DB_USERNAME=******
+DB_PASSWORD=*****
+```
+Run following commands after changes in .env file
+```bash
 php artisan key:generate
 php artisan migrate
 php artisan db:seed
