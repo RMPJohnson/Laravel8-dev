@@ -1,3 +1,6 @@
+# adeel-laravel-8-dev
+this is a potential starting point for our new backend.  It includes some basic functionality outlined in this README file.
+
 # Laravel 8.x boilerplate with docker configuration
 
 Laravel is well known PHP open-source framework. It intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony. Our Goal in this project is to create a basic architecture of a project that includes all necessary items that we use while developing any web application. We also create a docker file that includes Apache, PHP and MySQL. This application is tested on Ubuntu 20.0 LTS.
@@ -67,15 +70,15 @@ php artisan db:seed
 ```
 
 ## What's Inside?
-In this boilerplate we have split this application in two section one is for public are where you don't need to become a member are required a specific access to view resources.
-### Public
-for public area you just need to open your browser and run the URL that is provided by your docker images for-example.
+In this boilerplate we have split this application into two sections.  One is for guest users where content is available without needing to become a member.  The other is a registered admin user who can see content that requires specific access to view resources.
+### Public (Guest user)
+To view guest content you just need to open your browser and run the URL that is provided by your docker image setup. For example:
 ```bash
 http://localhost:8000
 ```
-The public area of the website is available now you can see a one static page and have few images and text.
+You'll see that the guest area is available as you will see one static page that has a few images and text.
 ### Management System:
-if you want to access the management system of the app then you need to login with admin access. but don't worry your first account is already created with admin access.
+if you want to access the management system of the app then you need to login with admin access. But don't worry--your first account is already created with admin access!
 ```bash
 http://localhost:8000/administrator
 ```
@@ -84,9 +87,9 @@ Add email and password:
 Email: admin@gmail.com
 Password: admin123
 ```
-***Note: Please change your change after first login.***
+***Note: Please change your password after first login.***
 
-There will be a dashboard in-front of you where can change your password. Update your profile information and create roles and permission.
+Once you login, you will see a dashboard where can change your password. Here you can update your profile information and create roles and permissions.
 
 # Features:
 1. Inspinia Bootstrap theme for admin area. [documentation](http://webapplayers.com/inspinia_admin-v2.9.4/)
@@ -102,8 +105,3 @@ There will be a dashboard in-front of you where can change your password. Update
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-
-## License
-This is opensource solution so everybody is allowed to use it make it better for the rest of the community. I shall be very thankful for those who is participating in this project and improve its architectural design.
-
-[MIT](https://choosealicense.com/licenses/mit/)
